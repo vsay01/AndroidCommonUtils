@@ -13,11 +13,11 @@ import java.io.OutputStream;
 public class ImageUtils {
     /**
      *
-     * @param context
-     * @param image
-     * @param imageUniqueId
-     * @param directoryName
-     * @return
+     * @param context context
+     * @param image image that want to be saved
+     * @param imageUniqueId unique image id
+     * @param directoryName directory name where image will be saved
+     * @return saved image path
      */
     public static String saveImage(Context context, Bitmap image, long imageUniqueId, String directoryName) {
         String savedImagePath = null;

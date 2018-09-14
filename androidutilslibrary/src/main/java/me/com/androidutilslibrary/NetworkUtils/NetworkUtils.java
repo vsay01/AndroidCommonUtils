@@ -9,8 +9,8 @@ import android.support.v7.app.AlertDialog;
 public class NetworkUtils {
     /**
      *
-     * @param context
-     * @return
+     * @param context context
+     * @return true if mobile has internet connection otherwise return false
      */
     public static boolean isOnline(Context context) {
         if (context != null) {
@@ -23,31 +23,5 @@ public class NetworkUtils {
             return false;
         }
         return false;
-    }
-
-    /**
-     *
-     * @param context
-     * @param title
-     * @param message
-     * @param positiveButtonStringValue
-     * @return
-     */
-    public static AlertDialog.Builder buildNoNetworkDialog(Context context, String title, String message, String positiveButtonStringValue) {
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle(title);
-        builder.setMessage(message);
-
-        builder.setPositiveButton(positiveButtonStringValue, new DialogInterface.OnClickListener() {
-
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-                dialog.dismiss();
-            }
-        });
-
-        return builder;
     }
 }

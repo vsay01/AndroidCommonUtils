@@ -8,9 +8,9 @@ import java.util.Date;
 
 public class DateUtils {
     /**
-     * @param inputDate
-     * @param inputDatePattern
-     * @param outputDatePattern
+     * @param inputDate         string input Date
+     * @param inputDatePattern  input date pattern
+     * @param outputDatePattern output date pattern
      * @return for instance:
      * inputDatePattern: "yyyy-MM-dd", "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
      * outputDatePattern: "MMM, dd yyyy", "MMM dd, yyyy 'at' HH:mm a"

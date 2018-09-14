@@ -4,9 +4,9 @@ import android.content.Context;
 
 public class UnitUtils {
     /**
-     * @param dps
-     * @param context
-     * @return
+     * @param dps     dps value
+     * @param context context
+     * @return return pixel value
      */
     public static int dpToPx(int dps, Context context) {
         if (context == null) {
@@ -17,9 +17,9 @@ public class UnitUtils {
     }
 
     /**
-     * @param px
-     * @param context
-     * @return
+     * @param px      pixel value
+     * @param context context
+     * @return dp value
      */
     public int pxToDp(int px, Context context) {
         if (context == null) {

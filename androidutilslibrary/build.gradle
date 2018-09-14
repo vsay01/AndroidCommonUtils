@@ -1,9 +1,9 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
 
 android {
     compileSdkVersion 28
-
-
 
     defaultConfig {
         minSdkVersion 15
@@ -21,7 +21,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
 }
 
 dependencies {
@@ -32,3 +31,29 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'androidcommonutils'
+
+    publishedGroupId = 'com.vsay01.utils'
+    libraryName = 'AndroidCommonUtils'
+    artifact = 'androidcommonutils'
+
+    libraryDescription = 'Collections of practical Android common utils classes for developer'
+
+    siteUrl = 'https://github.com/vsay01/AndroidCommonUtils'
+    gitUrl = 'https://github.com/vsay01/AndroidCommonUtils.git'
+
+    libraryVersion = '1.0.0'
+
+    developerId = 'vsay01'
+    developerName = 'Vortana Say'
+    developerEmail = 'sayvortana.itc@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+apply from: "maven_install.gradle"
