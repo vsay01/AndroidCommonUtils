@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">AndroidCommonUtils</string>
+    <string name="title_activity_sample">SampleActivity</string>
+    <string name="show_dialog">Show Dialog</string>
+    <string name="welcome">Welcome</string>
+    <string name="dialog_welcome_message">Created from Android Common Util</string>
+    <string name="ok">Ok</string>
+    <string name="message_online">You have connected to internet</string>
+    <string name="message_offline">You have not connected to internet</string>
 </resources>
