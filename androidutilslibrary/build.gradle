@@ -1,17 +1,79 @@
+//Step I: Add the below line
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
-apply plugin: 'com.jfrog.bintray'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+//apply plugin: 'com.novoda.bintray-release'
+
+//Step II: Add the below publish details
+/*publish {
+    def groupProjectID = 'com.vsay01.utils'
+    def artifactProjectID = 'androidcommonutils'
+    def publishVersionID = '1.1.0'
+
+    userOrg = 'vsay01'
+    repoName = 'androidcommonutils'
+    groupId = groupProjectID
+    artifactId = artifactProjectID
+    publishVersion = publishVersionID
+    desc = 'Collections of practical Android common utils classes for Android developer.'
+    website = 'https://github.com/vsay01/AndroidCommonUtils'
+}*/
+//apply plugin: 'maven-publish'
+//
+//task androidJavadocs(type: Javadoc) {
+//    source = android.sourceSets.main.java.srcDirs
+//    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+//    android.libraryVariants.all { variant ->
+//        if (variant.name == 'release') {
+//            owner.classpath += variant.javaCompileProvider.get().classpath
+//        }
+//    }
+//    exclude '**/R.html', '**/R.*.html', '**/index.html'
+//}
+//
+//task androidJavadocsJar(type: Jar, dependsOn: androidJavadocs) {
+//    archiveClassifier.set('javadoc')
+//    from androidJavadocs.destinationDir
+//}
+//
+//task androidSourcesJar(type: Jar) {
+//    archiveClassifier.set('sources')
+//    from android.sourceSets.main.java.srcDirs
+//}
+//
+//// Because the components are created only during the afterEvaluate phase, you must
+//// configure your publications using the afterEvaluate() lifecycle method.
+//afterEvaluate {
+//    publishing {
+//        publications {
+//            // Creates a Maven publication called "release".
+//            release(MavenPublication) {
+//                // Applies the component for the release build variant.
+//                from components.release
+//
+//                // Adds javadocs and sources as separate jars.
+//                artifact androidJavadocsJar
+//                artifact androidSourcesJar
+//
+//                // You can customize attributes of the publication here or in module's build.gradle file (if you save this as script and include it build.gradle file, then you can just replicate this whole block there only with changed fields).
+//                groupId = 'com.vsay01.utils'
+//                artifactId = 'androidcommonutils'
+//                version = '1.1.0'
+//            }
+//        }
+//    }
+//}
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
 
     defaultConfig {
         minSdkVersion 15
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
     }
 
@@ -22,7 +84,7 @@ android {
         }
     }
 
-    libraryVariants.all { variant ->
+    /*libraryVariants.all { variant ->
         // create tasks to generate Javadocs
         task("generate${variant.name.capitalize()}Javadoc", type: Javadoc) {
             source = variant.javaCompile.source
@@ -43,19 +105,22 @@ android {
             // the support library, so just turn off failing for errors
             failOnError false
         }
-    }
+    }*/
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'com.android.support:appcompat-v7:28.0.0-rc02'
-    implementation 'com.android.support:design:28.0.0-rc02'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'com.google.android.material:material:1.1.0'
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation "androidx.core:core-ktx:1.2.0"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 
+/*
 ext {
     bintrayRepo = 'maven'
     bintrayName = 'androidcommonutils'
@@ -69,7 +134,7 @@ ext {
     siteUrl = 'https://github.com/vsay01/AndroidCommonUtils'
     gitUrl = 'https://github.com/vsay01/AndroidCommonUtils.git'
 
-    libraryVersion = '1.0.0'
+    libraryVersion = '1.1.0'
 
     developerId = 'vsay01'
     developerName = 'Vortana Say'
@@ -83,3 +148,6 @@ ext {
 tasks.withType(Javadoc).all { enabled = false }
 
 apply from: "maven_install.gradle"
+repositories {
+    mavenCentral()
+}*/
