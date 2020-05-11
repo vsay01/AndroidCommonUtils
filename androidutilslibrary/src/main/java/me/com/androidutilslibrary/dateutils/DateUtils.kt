@@ -2,6 +2,7 @@ package me.com.androidutilslibrary.dateutils
 
 import android.net.ParseException
 import android.util.Log
+import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -30,5 +31,13 @@ object DateUtils {
             e.printStackTrace()
         }
         return outputDate
+    }
+
+    fun getDateCurrentTimeZone(timestamp: Long): String? {
+        val df: DateFormat
+        df = SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss", Locale.getDefault())
+        val cal = Calendar.getInstance()
+        cal.timeInMillis = timestamp
+        return df.format(cal.time)
     }
 }
